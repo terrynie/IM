@@ -6,9 +6,7 @@ import java.awt.event.*;
 
 public class MyFriendList extends JFrame implements MouseListener{
 	
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	//显示好友
 	JPanel northPanel,friendsListPanel,southPanel;
@@ -22,18 +20,11 @@ public class MyFriendList extends JFrame implements MouseListener{
 	
 	
 	CardLayout cl,cl2;
-//	public static void main(String[] args) {
-//		// TODO Auto-generated method stub
-//		MyFriendList my = new MyFriendList();
-//	}
-	
 	public MyFriendList(String username){
 		
 		//第一张卡片
 		myFriendButton = new JButton("我的好友");
 		strangerButton = new JButton("陌生人");
-//		limitedButton = new JButton("黑名单");
-		
 		northPanel = new JPanel(new BorderLayout());
 		
 		friendsListPanel = new JPanel(new GridLayout(50,1,4,4));
@@ -52,9 +43,6 @@ public class MyFriendList extends JFrame implements MouseListener{
 		southPanel = new JPanel(new GridLayout(1,1));
 		
 		southPanel.add(strangerButton);
-//		southPanel.add(limitedButton);
-		
-		
 		myFriendsListScroll = new JScrollPane(friendsListPanel);
 		
 		northPanel.add(myFriendButton,"North");
@@ -65,11 +53,10 @@ public class MyFriendList extends JFrame implements MouseListener{
 		//第二张卡片
 		jpmsr_jb1 = new JButton("我的好友");
 		jpmsr_jb2 = new JButton("陌生人");
-//		jpmsr_jb3 = new JButton("黑名单");
 		jpmsr1 = new JPanel(new BorderLayout());
-		
 		jpmsr2 = new JPanel(new GridLayout(20,1,4,4));
 		JLabel []jbls2 = new JLabel[20];
+		
 		
 		for (int i=0;i<jbls2.length;i++){
 			jbls2[i] = new JLabel(i+1+"",new ImageIcon("/Volumes/代码库/Java1/WW/images/users2.jpg"),JLabel.LEFT);
@@ -84,7 +71,6 @@ public class MyFriendList extends JFrame implements MouseListener{
 		
 		jpmsr1.add(jpmsr3,"North");
 		jpmsr1.add(jsp2,"Center");
-//		jpmsr1.add(jpmsr_jb3,"South");
 		
 		cl = new CardLayout();
 		this.setLayout(cl);

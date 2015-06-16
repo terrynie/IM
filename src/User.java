@@ -17,29 +17,11 @@ public class User extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-//	private static final String a = null;
 	private JPanel contentPane;
 	private JTextField searchTextField;
-//	static User frame = new User( a);
-//	/**
-//	 * Launch the application.
-//	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
 
-	/**
-	 * Create the frame.
-	 */
+
+	
 	public User(String username) {
 		this.setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

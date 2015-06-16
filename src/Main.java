@@ -14,17 +14,14 @@ import java.awt.event.ActionListener;
 
 public class Main extends JFrame {
 
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField loginAccountTextField;
 	private JPasswordField loginPasswordField;
 	static Main frame = new Main();
-	/**
-	 * Launch the application.
-	 */
+	
+	
 	public static void main(String[] args) {
 		
 		
@@ -40,9 +37,8 @@ public class Main extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
+	
+	 
 	public Main() {
 		this.setTitle("WW -- 微型聊天系统");	
 		
@@ -96,12 +92,10 @@ public class Main extends JFrame {
 				MongodbLink ml =new MongodbLink();
 				password = ml.getPassword(username);
 								    
-//				System.out.println(loginPassword);
-//				System.out.println(password);
+
 				if (loginPassword.compareTo(password)==0){
-					//System.out.println(3);
-					frame.setVisible(false);
-//					frame.dispose();
+					
+					frame.setVisible(false);					
 					new MyFriendList(username);					
 				}
 			}			
@@ -116,7 +110,6 @@ public class Main extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-//				System.out.println(1);
 				if(e.getSource()==loginRegisterButton){
 					frame.setVisible(false);
 					frame.dispose();

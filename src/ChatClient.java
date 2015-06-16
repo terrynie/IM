@@ -19,7 +19,7 @@ public class ChatClient extends Frame{
 	Thread tRecv = new Thread(new RecveThread());
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 		//客户端界面
 		new ChatClient().launchFrame();
 
@@ -52,7 +52,8 @@ public class ChatClient extends Frame{
 	public void connect(){
 		
 		try {
-			s = new Socket("127.0.0.1",11111);
+			s = new Socket("192.168.233.80",8000);
+			//s = new Socket("127.0.0.1",11111);
 			dos = new DataOutputStream(s.getOutputStream());
 			din = new DataInputStream(s.getInputStream());
 			connected = true;
@@ -70,23 +71,10 @@ public class ChatClient extends Frame{
 			din.close();
 			s.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
-		/*
-		try {
-			connected = false;
-			
-			tRecv.join();
-				
-		}catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}finally{
-			
-			
-		}
-		*/
+	
 	}
 	
 	
@@ -99,7 +87,7 @@ public class ChatClient extends Frame{
 			String temps = taContent.getText();
 			temps = temps+"\n"+str;
 			temps = temps.trim();
-//			taContent.setText(temps);
+
 			tfTxt.setText("");
 			try {
 					dos.writeUTF(str);
@@ -107,7 +95,7 @@ public class ChatClient extends Frame{
 					//dos.close();
 			
 			} catch (IOException e1) {
-				// TODO Auto-generated catch block
+				
 				e1.printStackTrace();
 			}
 		}
@@ -128,7 +116,7 @@ public class ChatClient extends Frame{
 				}catch(EOFException e){
 					System.out.println("exit");
 				}catch (IOException e) {
-					// TODO Auto-generated catch block
+					
 					e.printStackTrace();
 				}
 			}

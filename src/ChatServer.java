@@ -25,15 +25,11 @@ public class ChatServer {
 			e.printStackTrace();
 		}
 		
+		
 		try{
-			
 			while(started){
-//				boolean connected = false;
 				Socket s = ss.accept();
 				Client c = new Client(s);
-//				connected = true;
-
-			//dis.close();
 				new Thread(c).start();
 				clients.add(c);
 			}
@@ -43,7 +39,6 @@ public class ChatServer {
 			try {
 				ss.close();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -56,6 +51,7 @@ public class ChatServer {
 		private DataOutputStream dos = null;
 		private boolean connected = false;
 		
+		
 		public Client(Socket s){
 			this.s = s;
 			try {
@@ -63,7 +59,7 @@ public class ChatServer {
 				dos = new DataOutputStream(s.getOutputStream());
 				connected = true;
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+
 				e.printStackTrace();
 			}
 		}
@@ -74,7 +70,6 @@ public class ChatServer {
 			try {
 				dos.writeUTF(s);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				clients.remove(this);
 				e.printStackTrace();
 			}
@@ -83,11 +78,9 @@ public class ChatServer {
 		
 		
 		public void run() {
-			
 			try{
 				while(connected){
 					String str = dis.readUTF();
-System.out.println(str);
 					for(int i=0;i<clients.size();i++){
 						Client c = clients.get(i);
 						c.sent(str);

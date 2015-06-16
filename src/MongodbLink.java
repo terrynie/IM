@@ -21,9 +21,9 @@ public class MongodbLink {
     	String password = null;
     	try {
 			client = new MongoClient("127.0.0.1",27017);
-//			System.out.println("连接成功。。。");
 		} catch (UnknownHostException e) {
-//			System.out.println("连接失败。。。。");
+			Object[] options = { "OK"};
+			JOptionPane.showOptionDialog(null, "服务器连接失败！", "警告", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, null); 
 		}
     	
     	if(client!=null){
@@ -35,7 +35,6 @@ public class MongodbLink {
 			co = collection.findOne(fi).toMap();
 			password = co.get("password");
     	}
-//    	System.out.println(2);
 		return password;
     }
     
@@ -44,9 +43,10 @@ public class MongodbLink {
     public void setUserInfo(String username,String password){
     	try {
 			client = new MongoClient("127.0.0.1",27017);
-//			System.out.println("连接成功。。。");
+
 		} catch (UnknownHostException e) {
-//			System.out.println("连接失败。。。。");
+			Object[] options = { "OK"};
+			JOptionPane.showOptionDialog(null, "服务器连接失败！", "警告", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, null); 
 		}
         
         if(client!=null){
@@ -59,6 +59,7 @@ public class MongodbLink {
         }
     }
     
+    
     //验证用户名是否存在
     public boolean verifyUserExistOrNot(String username){
     	int count = 0;
@@ -68,9 +69,7 @@ public class MongodbLink {
 		} catch (UnknownHostException e) {
 			Object[] options = { "OK"};
 			JOptionPane.showOptionDialog(null, "服务器连接失败！", "警告", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, null); 
-//			System.out.println("连接失败。。。。");
 		}
-        
         if(client!=null){
         	db = client.getDB("chatsystem");
 			DBCollection collection = db.getCollection("user");
@@ -83,6 +82,7 @@ public class MongodbLink {
        	
     }
     
+    
     //用户匹配查询,即查找用户
     public DBObject searchUser(String username){
     	DBObject result = null;
@@ -92,7 +92,6 @@ public class MongodbLink {
 			Object[] options = { "OK"};
 			JOptionPane.showOptionDialog(null, "服务器连接失败！", "警告", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, null); 
 		}
-        
         if(client!=null){
         	db = client.getDB("chatsystem");
 			DBCollection collection = db.getCollection("user");
@@ -104,6 +103,7 @@ public class MongodbLink {
 		return result;
     	
     }
+    
     
     //查询好友数目
     @SuppressWarnings("unchecked")
@@ -127,6 +127,8 @@ public class MongodbLink {
     	}
 		return Integer.parseInt(result);
     }
+    
+    
     //获取好友列表
     public String [] getFriendList(String username){
     	BasicDBObject document = new BasicDBObject();
