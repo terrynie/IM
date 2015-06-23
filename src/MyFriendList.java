@@ -26,16 +26,13 @@ public class MyFriendList extends JFrame implements MouseListener{
 		myFriendButton = new JButton("我的好友");
 		strangerButton = new JButton("陌生人");
 		northPanel = new JPanel(new BorderLayout());
-		
 		friendsListPanel = new JPanel(new GridLayout(50,1,4,4));
-		
 		JLabel [] jbls = new JLabel[50];
 		
 		for(int i=0;i<jbls.length;i++){
 			jbls[i] = new JLabel(i+1+"",new ImageIcon("/Volumes/代码库/Java1/WW/images/users2.jpg"),JLabel.LEFT);
 			jbls[i].addMouseListener(this);
 			friendsListPanel.add(jbls[i]);
-			
 		}
 		
 		

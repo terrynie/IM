@@ -68,10 +68,7 @@ public class User extends JFrame {
 		JPanel buttom = new JPanel(new GridLayout(2, 1));
 		buttom.setBounds(0, 406, 300, 72);
 		contentPane.add(buttom);
-		
-		
-			
-				
+	
 		//陌生人按钮
 		JButton stranger = new JButton("陌生人");
 		//黑名单
@@ -90,21 +87,7 @@ public class User extends JFrame {
 			
 			this.add(friendList);
 			
-			}
-		
-		
-		
-		
-		
-		
-//		//Lambda表达式
-//		searchButton.addActionListener(event -> {
-//			String user = null;
-//			user = searchTextField.getText();
-//			MongodbLink a = new MongodbLink();
-//			DBObject result= a.searchUser(username);
-//			
-//		});
+		}
 	}
 }
 

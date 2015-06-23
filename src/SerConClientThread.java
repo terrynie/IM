@@ -7,7 +7,7 @@ public class SerConClientThread extends Thread {
 	}
 	public void run(){
 		while(true){
-//			Objective
+
 		}
 	}
 }

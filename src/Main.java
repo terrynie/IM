@@ -77,10 +77,8 @@ public class Main extends JFrame {
 		JButton loginButton = new JButton("登陆");
 		loginButton.setBounds(100, 204, 117, 29);
 		contentPane.add(loginButton);
-		loginButton.addActionListener(new ActionListener(){
+		loginButton.addActionListener(event->{
 			
-			@Override
-			public void actionPerformed(ActionEvent e) {
 				String username = "";
 				String loginPassword = new String(loginPasswordField.getPassword());//输入的密码
 				String password = null;// 从数据库中得到的密码
@@ -94,11 +92,9 @@ public class Main extends JFrame {
 								    
 
 				if (loginPassword.compareTo(password)==0){
-					
 					frame.setVisible(false);					
 					new MyFriendList(username);					
-				}
-			}			
+				}		
 		});
 		
 		

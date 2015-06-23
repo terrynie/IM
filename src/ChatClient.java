@@ -5,6 +5,8 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.net.*;
 import java.awt.event.*;
+
+
 public class ChatClient extends Frame{
 	//与服务器的连接
 	Socket s = null; 
@@ -37,7 +39,13 @@ public class ChatClient extends Frame{
 			@Override
 			public void windowClosing(WindowEvent arg0){
 				disconnect();//disconnect with the server
-				System.exit(0);
+//				System.exit(0);
+				try {
+					this.clone();
+				} catch (CloneNotSupportedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 
 		});
@@ -52,8 +60,8 @@ public class ChatClient extends Frame{
 	public void connect(){
 		
 		try {
-			s = new Socket("192.168.233.80",8000);
-			//s = new Socket("127.0.0.1",11111);
+//			s = new Socket("192.168.233.80",8000);
+			s = new Socket("127.0.0.1",11111);
 			dos = new DataOutputStream(s.getOutputStream());
 			din = new DataInputStream(s.getInputStream());
 			connected = true;
